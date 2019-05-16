@@ -55,7 +55,7 @@ func (ctx *context) diskPhysicalBlockSizeBytes(disk string) uint64 {
 	if err != nil {
 		return 0
 	}
-	i, err := strconv.Atoi(strings.TrimSpace(string(contents)))
+	i, err := strconv.ParseUint(strings.TrimSpace(string(contents)), 10, 64)
 	if err != nil {
 		return 0
 	}
@@ -83,7 +83,7 @@ func (ctx *context) diskSizeBytes(disk string) uint64 {
 	if err != nil {
 		return 0
 	}
-	i, err := strconv.Atoi(strings.TrimSpace(string(contents)))
+	i, err := strconv.ParseUint(strings.TrimSpace(string(contents)), 10, 64)
 	if err != nil {
 		return 0
 	}
@@ -438,7 +438,7 @@ func (ctx *context) partitionSizeBytes(part string) uint64 {
 	if err != nil {
 		return 0
 	}
-	i, err := strconv.Atoi(strings.TrimSpace(string(contents)))
+	i, err := strconv.ParseUint(strings.TrimSpace(string(contents)), 10, 64)
 	if err != nil {
 		return 0
 	}
